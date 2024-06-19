@@ -1,0 +1,112 @@
+.card-item{
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s;
+	margin-bottom: 25px;
+	margin: 0px 5px;
+	max-width: 213px;
+	margin-top: 30px;
+}
+.card-item:hover{
+	/*border: 3px solid green;*/
+	transform: scale(1.05);
+	transition: all 0.17s;
+}
+
+.card-top{
+	max-width: 210px;
+	max-height: 315px;
+}
+.card-top img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.card-info h4{
+	font-size: 1.25rem;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+.card-bottom{
+	margin-bottom: 10px;
+	padding: 15px 15px 0px 15px;
+}
+
+.card-info span{
+	font-size: .9rem;
+	font-weight: 200;
+} 
+
+@media screen and (width < 640px) {
+	.card-item{
+		margin-top: 10px;
+		margin-bottom: 5px;
+	}
+	.card-bottom{
+		display: none;
+	}
+	.card-inner-found .card-bottom{
+		display: block;
+	}
+	
+}
+
+													/*===	FOR FOUND MOVIES/SHOWS	===*/
+
+@media screen and (width < 1024px) {
+	.card-inner-found {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		
+	}
+	.card-item{
+		max-width: 100%;
+		margin-top: 30px;
+	}
+	.card-inner-found .card-bottom{
+		width: 69%;
+		margin-bottom: 0px;
+		padding: 0px 0px 0px 0px;
+	}
+	.card-inner-found .card-top{
+		width: 30%;
+	}
+	.card-inner-found .card-info h4{
+		font-size: 1.75rem;
+		font-weight: 500;
+	}
+	.card-inner-found .card-info span{
+		font-size: 1.5rem;
+		font-weight: 200;
+	} 
+}
+
+@media screen and (width < 768px) {
+	.card-inner-found .card-bottom{
+		width: 65%;
+		margin-bottom: 0px;
+		padding: 0px 0px 0px 0px;
+	}
+	.card-inner-found .card-info h4{
+		font-size: 1.75rem;
+		font-weight: 500;
+	}
+	.card-inner-found .card-info span{
+		font-size: 1.5rem;
+		font-weight: 200;
+	} 
+}
+@media screen and (width < 480px) {
+	.card-inner-found .card-info h4{
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+	.card-inner-found .card-info span{
+		font-size: 1.25rem;
+		font-weight: 100;
+	} 
+}
+

@@ -1,0 +1,37 @@
+
+.searchBar{
+	max-width: 300px;
+	padding: 10px 20px;
+	border-radius: 30px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	margin: 10px 0px;
+}
+
+.searchBar input {
+	background: transparent;
+	border: 0;
+	outline: 0;
+	flex: 1;
+	font-size: 18px;
+	color: grey;
+}
+
+.searchBar button{
+	padding-left: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: 0;
+}
+.searchBar img{
+	max-width: 30px;
+}
+
+@media screen and (width < 950px) {
+	.searchBar{
+		display: none;
+	}
+
+}

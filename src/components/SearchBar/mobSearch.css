@@ -1,0 +1,49 @@
+
+
+.mobSearchBar{
+	font-family: "Karla", sans-serif;
+	/*max-width: 300px;*/
+	padding: 10px 20px;
+	border-radius: 30px;
+	background-color: white;
+	display: flex;
+	align-items: center;
+	margin: 10px 0px;
+}
+
+.mobSearchBar input {
+	background: transparent;
+	border: 0;
+	outline: 0;
+	flex: 1;
+	font-size: 1rem;
+	color:  black;
+}
+
+.mobSearchBar button{
+	padding-left: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: 0;
+}
+
+.mobSearchBar img{
+	max-width: 30px;
+}
+.mobSearchBar{
+	display: none;
+}
+
+@media screen and (width < 950px) {
+	.mobSearchBar{
+		margin: 0px 0px;
+		margin-top: 5em;
+		width: 96%;
+		margin-left: 10px;
+		display: flex;
+		justify-content: space-between;
+	}
+	.mobSearchBar img{
+	}
+}

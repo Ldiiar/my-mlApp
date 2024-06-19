@@ -1,0 +1,92 @@
+.review-container {
+	display: flex;
+	width: 100%;
+	border-top: 1px solid #4f4f4f;
+	padding: 5px 0px 40px 0px;
+	/*min-height: 100%;*/
+	/*position: absolute;*/
+	/*bottom: 100px;*/
+	/*background-color: aliceblue;*/
+}
+
+.review-info {
+	min-width: 75%;
+}
+
+.review-author-img {
+	width: 20%;
+	min-width: 80px;
+	max-width: 90px
+}
+.review-author-img img {
+	margin-top: .6em;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border-color: white;
+}
+
+@media screen and (max-width: 450px) {
+	.review-author-img img {
+		width: 40px;
+		height: 40px;
+	}
+	.review-author-img{
+		width: 15%;
+		min-width: 60px;
+	}
+}
+
+.reviewed {
+	font-size: 17px;
+	padding-top: 10px;
+}
+.reviewed span{
+	margin-right: 10px;
+}
+.review-date{
+	margin-right: 0;
+	margin-left: 15px;
+	font-size: 15px;
+	font-weight: 300;
+}
+.rev-by{
+	font-size: 15px;
+	font-weight: 300;
+}
+.rev-by-author{
+	margin-left: -5px;
+	font-weight: 600;
+}
+
+.reviewed img {
+	margin-bottom: -3px;
+	display: inline-block;
+	width: 1.2em;
+}
+
+.the-review {
+	font-family: 'Neuton', serif;
+	word-spacing: 3px;
+	opacity: .7;
+	max-width: 600px;
+	font-size: 1.3rem;
+	font-weight: 300;
+	line-height: 30px;
+	padding-top: .6em;
+}
+
+.review-date {
+	padding-top: .6em;
+	padding-bottom: .6em;
+}
+.show-more{
+	cursor: pointer;
+	opacity: none;
+	color: #fff;
+	font-weight: 700;
+}
+.show-more:hover{
+	color: aqua ;
+}
+

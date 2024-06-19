@@ -1,0 +1,529 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "Karla", sans-serif;
+	box-sizing: border-box;
+	font-weight: normal;
+	color: #e3dcd2;
+}
+
+a {
+	text-decoration: none;
+}
+
+.container{
+	width: 90%;
+	margin: 0 auto; 
+	max-width: 1200px;
+}
+
+/*===	HOME	===*/
+
+.container-home{
+	margin-bottom: 7em;
+}
+@media screen and (max-width: 640px) {
+	.container-home{
+		margin-bottom: 4em;
+	}
+}
+/*===	HOME	===*/
+
+body{
+	font-size: 1.125rem;
+	font-weight: 300;
+	font-family: "Poppins", sans-serif;
+	margin: 0;
+	background: #14181c;
+}
+
+img{
+	max-width: 100%;
+	display: block;
+}
+
+.app{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/*================================================		HEADER		===================================================================*/
+
+.main-logo{
+	display: flex;
+}
+
+.main-logo span{
+	font-family: "Ultra", sans-serif;
+	font-family: "Anton", sans-serif;
+	color: #fff;
+	font-size: 2.5rem;
+	font-weight: 500;
+	font-stretch: expanded;
+	letter-spacing: 1px;
+}
+
+.main-logo img{
+	width: 35px;
+	margin-right: .5em;
+}
+
+@media screen and (width < 481px) {
+	.header{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	/*.main-logo{
+		font-size: 25px;
+		font-weight: 200;
+		padding: 20px 0px;		
+	}*/
+
+}
+
+
+header{
+	background-color: #36454F;
+	padding: 1em 0;
+}
+
+.container-flex{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+/*	Navigation	*/
+nav{
+	padding: 1em;
+}
+
+nav ul{
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+nav li{
+	font-family: "Poppins", sans-serif;
+	margin-left: 2em;
+	font-size: 1.25rem;
+}
+
+nav a{
+	text-decoration: none;
+	color: #fff;
+	opacity: .8;
+	font-weight: 800;
+	padding: .25em 0;
+}
+
+nav a:hover{
+	opacity: 1;
+}
+
+.current-page{
+	border-bottom: 2px solid #fff;
+}
+
+.current-page:hover{
+	opacity: .8;
+}
+
+.burger-menu{
+	display: none;
+}
+
+.burger-menu i{
+	font-size: 2.5rem;
+}
+
+@media screen and (max-width: 700px) {
+	.burger-menu{
+		display: block;
+		position: absolute;
+		right: 25px;
+		top: 30px;
+		cursor: pointer;
+		z-index: 10;
+	}	
+	.burger-menu-fixed{
+		position: fixed;
+	}
+	nav ul{
+		flex-direction: column;
+		justify-content: center;
+		position: fixed;
+		left: -100%;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: #2C373F;
+		z-index: 10;
+		text-align: center;
+		transition: left .8s;
+	}
+	nav li{
+		margin-left: 0em;
+		margin-bottom: 2em;
+	}
+
+	nav li a{
+		color: #fff;
+		font-size: 2rem;
+		z-index: 11;
+	}
+
+	.burger-active{
+		left: 0;
+		overflow: hidden;
+	}
+	.app-fixed{
+		/*position: fixed;*/
+		overflow-y: auto;
+	}
+}
+
+/*================================================		SHOW DETAILS (only)  	===================================================================*/
+	
+.total {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	width: 400px;
+	display: grid;
+	grid-template-columns: 150px 150px;
+}
+.totalSeasons {
+	padding: .3em .3em .3em 0px;
+	border-right: 1px solid #4F4F4F;
+}
+.bold-text {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-right: .3em;
+}
+
+.totalEpisode {
+	padding: .3em 0px .3em 3em;
+}
+
+@media screen and (max-width: 481px) {
+	.total {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		width: 300px;
+		display: grid;
+		grid-template-columns: 100px 100px;
+	}
+	.bold-text {
+		font-size: 1rem;
+		font-weight: 600;
+		margin-right: .3em;
+	}
+	.totalEpisode {
+		padding: .3em 0px .3em 1em;
+	}
+}
+
+
+/*================================================		REVIEWS PAGE		===================================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+	.revpage-blocks{
+		margin-top: 6em;
+		display: flex;
+		justify-content: space-between;
+	}
+	.reviews-content{
+		/*background-color: blueviolet;*/
+		width: 70%;
+	}
+	
+	.revs-descriprion{
+		padding-bottom: 1.25rem;
+	}
+	.revs-descriprion :nth-child(3n){
+		font-size: 1rem;
+	}
+	
+	.reviews-of{
+		letter-spacing: 2px;
+		font-family: "Bebas Neue", sans-serif;
+		font-weight: 300;
+		font-size: 1.25rem;
+	}
+
+	
+	.review-poster{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		width: 25%;
+	}
+	.review-poster img{
+		border-radius: 3px;
+		width: 100%;
+	}
+	.review-poster-mob{
+		margin-top: 1em;
+	}
+
+	.rev-movieName{
+		font-weight: 700;
+		font-family: 'PT Serif', serif;
+		font-size: 2.7rem;
+	}
+	.rev-movieName:hover{
+		cursor: pointer;
+		color: #66FCF1 ;
+	}
+	
+	
+	@media screen and (max-width: 540px) {
+		.revpage-blocks{
+			flex-direction: column;
+		}
+		.rev-movieName{
+			font-weight: 700;
+			font-size: 2.1rem;
+		}
+		.revs-descriprion{
+
+		}
+		.reviews-content{
+			width: 100%;
+		}
+	}
+	@media screen and (min-width: 540px) {
+		.review-poster-mob{
+			display: none;
+		}
+	}
+	@media screen and (max-width: 540px) {
+		.review-poster-all{
+			display: none;
+		}
+		
+	}
+	
+	
+	/*================================================		FOUNDS PAGE		===================================================================*/
+
+	@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.container-searchPage{
+	margin-top: 5.5em;
+}
+
+.search-category{
+	border-top: 1px solid #4F4F4F;
+	padding: 7px 0 7px 0;
+	border-bottom: 1px solid #4F4F4F;
+	/*background-color: antiquewhite;*/
+	/*display: flex;*/
+}
+
+.found-movieName{
+	font-weight: 700;
+	font-size: 3rem;
+}
+
+@media screen and (max-width: 500px){
+	.found-movieName{
+		font-weight: 700;
+		font-size: 2.5rem;
+	}
+}
+
+.search-category span{
+	font-family: "Bebas Neue", sans-serif;
+	font-style: normal;
+	letter-spacing: 2px;
+	font-weight: 200;
+	font-size: 1.5rem;
+	margin-right: .9em;
+}
+.search-category span:hover{
+	padding-bottom: .3em;
+	border-bottom: 3px solid #cc8b26 ;
+}
+
+.search-chosen{
+	color: #cc8b26;
+	padding-bottom: .3em;
+	border-bottom: 3px solid #cc8b26;
+}
+
+
+
+/*================================================		FOUNDLISTING		===================================================================*/
+
+.found-movies-container{
+	padding: 0px 50px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: .3em;
+}
+
+.pages-wrapper{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2em;
+}
+
+.page-block{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: darkgray;
+	font-size: 1rem;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.page-block:hover{
+	color: #fff;
+	background-color: #2C343F;
+}
+
+.page-block-selected{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: gray;
+	font-size: 1rem;
+	width: 30px;
+	height: 30px;
+	border-bottom: 1px solid gray;
+}
+
+@media screen and (max-width: 1024px) {
+	.found-movies-container{
+		display: flex;
+		flex-direction: column;
+		padding: 0px 0px;
+	}
+
+}
+
+
+	/*================================================		FOOTER		===================================================================*/
+	
+	footer{
+		margin-top: auto;
+		width: 100%;
+		height: auto;
+		min-height: 20vh;
+		background-color: #2C343F;
+	}
+	
+
+	.footer-wrap{
+		background-color: transparent  ;
+		padding: 1em;
+	}
+	
+	.sector-one{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: .5em;
+	}
+	.social-links i{
+		margin-left: .5em;
+		font-size: 1.5rem;
+		opacity: .5;
+	}
+	.social-links i:hover{
+		opacity: 1;
+	}
+
+	.rights{
+		color: #fff;
+		opacity: .5;
+		font-weight: 400;
+		font-size: 1.1rem;
+	}
+
+	.footer-logo{
+		font-family: "Anton", sans-serif;
+		font-weight: 200;
+		font-stretch: expanded;
+		color: #0B0C10 ;
+		font-size: 1.7rem;
+		color: white;
+		opacity: .6;
+		letter-spacing: 3px;
+		transition: .1s;
+	}
+	/*.footer-logo:hover{
+		opacity: 1;
+	}*/
+	
+	@media screen and (max-width: 380px) {
+		.sector-one{
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 1.25em;
+		}
+		.footer-logo{
+			margin-bottom: 1em;
+		}
+		.rights{
+			margin-bottom: 3em;
+		}
+	}
+
+	/*================================================		WATCHLIST		===================================================================*/
+	.watchlist-page h2{
+		font-family: "Karla", sans-serif;
+		font-family: "Poppins", sans-serif;
+		margin: 1em 0em;
+	}
+
+	.list-wrapper{
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
+    	grid-gap: 1em; 
+	}
+	.list-wrapper img{
+		width: 100px;
+		cursor: pointer;
+	}
+	.list-wrapper img:hover{
+		scale: 1.1;
+		border: 5px solid green;
+		border-radius: 3px;
+		transition:  0.1s linear;;
+	}
+	
+	@media screen and (min-width: 768px) {
+		.list-wrapper{
+			grid-template-columns: repeat( auto-fit, minmax(150px, 150px));
+		}
+		.list-wrapper img{
+			width: 150px;
+		}
+	}
+	
