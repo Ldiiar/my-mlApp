@@ -63,6 +63,7 @@
 	background-color: rgb(61, 74, 87);
 	padding: .8em 0px .8em 1em;
 	width: 40%;
+	min-width: 150px;
 	cursor: pointer;
 }
 
@@ -86,6 +87,10 @@
 .like-block i{
 	font-size: 1.3rem;
 	padding: .8em;
+}
+
+.liked-one i{
+	color: orange;
 }
 
 .trailer-container{
@@ -229,6 +234,7 @@
 	font-size: 1rem;
 	margin-top: 1em;
 }
+
 
 /*SOME COMMENTS*/
 /*

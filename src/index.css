@@ -35,6 +35,7 @@ a {
 .container-home{
 	margin-bottom: 7em;
 }
+
 @media screen and (max-width: 640px) {
 	.container-home{
 		margin-bottom: 4em;
@@ -199,7 +200,6 @@ nav a:hover{
 		overflow: hidden;
 	}
 	.app-fixed{
-		/*position: fixed;*/
 		overflow-y: auto;
 	}
 }
@@ -501,7 +501,7 @@ nav a:hover{
 		font-family: "Poppins", sans-serif;
 		margin: 1em 0em;
 	}
-
+	
 	.list-wrapper{
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(100px, 100px));
@@ -510,11 +510,11 @@ nav a:hover{
 	.list-wrapper img{
 		width: 100px;
 		cursor: pointer;
+		border-radius: 3px;
 	}
 	.list-wrapper img:hover{
-		scale: 1.1;
-		border: 5px solid green;
-		border-radius: 3px;
+		scale: 1.03;
+		border: 3px solid green;
 		transition:  0.1s linear;;
 	}
 	
@@ -527,3 +527,16 @@ nav a:hover{
 		}
 	}
 	
+	/*================================================		COMMON		===================================================================*/
+
+	.backBtn{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 5px;
+		background-color: gray;
+		height: 40px;
+		width: 40px;
+		font-size: 1rem;
+		margin-top: 1em;
+	}

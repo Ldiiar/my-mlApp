@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -11,13 +11,43 @@ import { nanoid } from "@reduxjs/toolkit";
 import ReviewElement from "./Reviews/ReviewEl";
 import { Link, Outlet } from "react-router-dom";
 import trailerIcon from "../assets/trailer-icon.png";
+import { addToLikes, addToWatchlist, removeFromLikes, removeFromWatchlist } from '../features/Movies/detailsSlice';
 
 const ShowDetail = () => {
 	const showDetails = useSelector((state) => state.movies.selectedOne);
 	const allReviews = useSelector((state) => state.movies.reviews.results);
+	console.log(showDetails);
 
 	const { id } = useParams();
 	const dispatch = useDispatch();
+
+
+	const watchlist = useSelector((state) => state.detailsPage.watchlist)
+    const likes = useSelector((state) => state.detailsPage.likes)
+	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.some(item => item.id === id))
+	const [isLiked, setIsLiked] = useState(likes.some(item => item.id === id));
+
+
+	function toggleIsWatchlisted() {
+		if(isWatchlisted){
+			dispatch(removeFromWatchlist([id]))
+			setIsWatchlisted(false)
+		} else{
+			dispatch(addToWatchlist([id, cardImgLink, 'tv']))
+			setIsWatchlisted(true)
+		}
+	}
+
+	function toggleIsLiked() {
+		if(isLiked){
+			dispatch(removeFromLikes([id]))
+			setIsLiked(false)
+		} else{
+			dispatch(addToLikes([id, cardImgLink, 'tv']))
+			setIsLiked(true)
+		}
+	}
+
 	useEffect(
 		function fetchShowDetail() {
 			fetch(
@@ -49,15 +79,12 @@ const ShowDetail = () => {
 	let firstTwoReviews;
 	function reducedReviews(allReviews) {
 		if (allReviews?.length > 0) {
-			//  const slicedReviews = allReviews?.length >= 2 ? allReviews.slice(0, 2) : allReviews.slice(0, 1);
 			firstTwoReviews =
 				allReviews.length >= 2
 					? allReviews.slice(0, 2)
 					: allReviews.slice(0, 1);
-			// Use spread syntax for array updates
-			console.log(firstTwoReviews);
 		} else {
-			firstTwoReviews = []; // Set to empty array if allReviews is undefined
+			firstTwoReviews = []; 
 			console.log(firstTwoReviews);
 		}
 
@@ -124,11 +151,9 @@ const ShowDetail = () => {
 	const status = showDetails.in_production ? "Running" : "Ended";
 
 	//TRAILER
-	//TRAILER
 	const trailerInfo = useSelector(
 		(state) => state.movies.trailerLink.results
 	);
-	console.log(trailerInfo);
 	const allTrailerLinks =
 		trailerInfo &&
 		trailerInfo.map((item) => {
@@ -194,6 +219,23 @@ const ShowDetail = () => {
 					<div className="details-title-deck">
 						<h2> {itsTitle} </h2>
 					</div>
+
+					<div className="actions">
+					<div className='watchlist-block' onClick={()=> { toggleIsWatchlisted() }}>
+						<i class={isWatchlisted? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} ></i>
+						<span>Watchlist</span>
+					</div>
+					<div className="like-block" onClick={() => { toggleIsLiked() }}>
+						{isLiked
+						? <div className="liked-one"> 
+						<i class="fa-solid fa-heart"></i>
+						</div>
+						: <div className=""><i class="fa-regular fa-heart"></i></div>
+						}
+
+					</div>
+					</div>
+
 					<p className="tagLine">{tagLine}</p>
 					<p className="details-description">{itsDescription}</p>
 					<div className="details-about">

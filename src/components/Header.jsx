@@ -17,15 +17,15 @@ function Header() {
 						<Link to="/">
 							<div className="main-logo">
 								<img src={gun} alt="" />
-								<span>BarboxHD</span>
+								<span>MovieLab</span>
 							</div>
 						</Link>
 					</div>
 					<nav>
 						<ul className={burgerMenu ? "burger-active" : ""}>
-							<li> <Link to='/'><a className="current-page">HOME</a> </Link> 
+							<li className='current-page' ><Link to='/'>HOME</Link> 
 							</li>
-							<li> <Link to='/watchlist'> PROFILE </Link> 
+							<li > <Link to='/profile'> PROFILE </Link> 
 							</li>
 							<li><a href="#"> JOURNAL </a>
 							</li>

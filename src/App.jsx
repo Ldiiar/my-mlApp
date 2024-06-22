@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -13,9 +13,12 @@ import ReviewsPage from "./components/ReviewsPage";
 import FoundShows from "./components/FoundShows";
 import { useSelector } from "react-redux";
 import WatchlistPage from './components/WatchlistPage';
+import ProfilePage from './components/ProfilePage';
+import LikesPage from './components/LikesPage';
 
 export default function App() {
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
+
 
 	const router = createBrowserRouter([
 		{
@@ -48,8 +51,16 @@ export default function App() {
 					element: <ReviewsPage />,
 				},
 				{
-					path: "/watchlist",
+					path: "/profile",
+					element: <ProfilePage />,
+				},
+				{
+					path: "/profile/watchlist",
 					element: <WatchlistPage />,
+				},
+				{
+					path: "/profile/likes",
+					element: <LikesPage />,
 				},
 			],
 		},

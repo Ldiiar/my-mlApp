@@ -8,7 +8,7 @@ const Footer = () => {
 			<div className="container">
 				<div className="footer-wrap">
 					<div className="sector-one">
-						<div className="footer-logo">BarboxHD</div>
+						<div className="footer-logo">MovieLab</div>
 						<div className="social-links">
 							<i class="fa-brands fa-facebook"></i>
 							<i class="fa-brands fa-twitter"></i>

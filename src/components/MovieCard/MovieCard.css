@@ -8,7 +8,7 @@
 	margin-top: 30px;
 }
 .card-item:hover{
-	/*border: 3px solid green;*/
+	/* border: 3px solid green; */
 	transform: scale(1.05);
 	transition: all 0.17s;
 }

@@ -8,7 +8,9 @@ import {
 	addReviews,
 } from "../features/Movies/movieSlice";
 import {
+	addToLikes,
 	addToWatchlist,
+	removeFromLikes,
 	removeFromWatchlist
 } from "../features/Movies/detailsSlice";
 import { addMovieName, addMoviePoster } from "../features/Movies/reviewSlice";
@@ -23,7 +25,9 @@ const MovieDetail = () => {
 	const allReviews = useSelector((state) => state.movies.reviews.results);
 	const itsTitle = movieDetails && movieDetails.title;
     const watchlist = useSelector((state) => state.detailsPage.watchlist)
-	const [isWatchlisted, setIsWatchlisted] = useState(false)
+    const likes = useSelector((state) => state.detailsPage.likes)
+	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.includes(item => item.id === id)? true : false)
+	const [isLiked, setIsLiked] = useState(likes.some(item => item.id === id));
 
 
 	function toggleIsWatchlisted() {
@@ -36,23 +40,30 @@ const MovieDetail = () => {
 		}
 	}
 
+	function toggleIsLiked() {
+		if(isLiked){
+			dispatch(removeFromLikes([id, cardImgLink]))
+			setIsLiked(false)
+		} else{
+			dispatch(addToLikes([id, cardImgLink]))
+			setIsLiked(true)
+		}
+	}
+
 	useEffect(() => {
 			watchlist.some(item => item.id === id) ? setIsWatchlisted(true) : setIsWatchlisted(false)
 	}, [id])
 
-	console.log(isWatchlisted);
 
 	let firstTwoReviews;
 	function reducedReviews(allReviews) {
 		if (allReviews?.length > 0) {
-			//  const slicedReviews = allReviews?.length >= 2 ? allReviews.slice(0, 2) : allReviews.slice(0, 1);
 			firstTwoReviews =
 				allReviews.length >= 2
 					? allReviews.slice(0, 2)
 					: allReviews.slice(0, 1);
-			// Use spread syntax for array updates
 		} else {
-			firstTwoReviews = []; // Set to empty array if allReviews is undefined
+			firstTwoReviews = []; 
 		}
 
 		return firstTwoReviews;
@@ -220,8 +231,14 @@ const MovieDetail = () => {
 						<i class={isWatchlisted? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} ></i>
 						<span>Watchlist</span>
 					</div>
-					<div className="like-block">
-						<i class="fa-regular fa-heart"></i>
+					<div className="like-block" onClick={() => { toggleIsLiked() }}>
+						{isLiked
+						? <div className="liked-one"> 
+						<i class="fa-solid fa-heart"></i>
+						</div>
+						: <div className=""><i class="fa-regular fa-heart"></i></div>
+						}
+
 					</div>
 					</div>
 						<p className="tagLine">{tagLine?.toUpperCase()}</p>
