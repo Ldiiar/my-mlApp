@@ -9,6 +9,7 @@ import {
 import MobSearchBar from  "./SearchBar/MobSearchBar";
 
 const Home = (props) => {
+	props.setCurrPage('home')
 	const [inputValue, setInputValue] = React.useState("");
 	const handleInputChange = (event) => {
 		setInputValue(event.target.value);

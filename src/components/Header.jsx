@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import DeckSearchBar from "./SearchBar/DeckSearchBar";
 import gun from "../assets/logo-main2.svg";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {toggleBurgerMenu} from '../features/Movies/burgerSlice'
 
 function Header() {
+	const url = window.location.href;
 	const dispatch = useDispatch();
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
 
@@ -14,7 +15,7 @@ function Header() {
 			<header>
 				<div className="container container-flex">
 					<div className="site-title">
-						<Link to="/">
+						<Link to="/home">
 							<div className="main-logo">
 								<img src={gun} alt="" />
 								<span>MovieLab</span>
@@ -23,9 +24,9 @@ function Header() {
 					</div>
 					<nav>
 						<ul className={burgerMenu ? "burger-active" : ""}>
-							<li className='current-page' ><Link to='/'>HOME</Link> 
+							<li className={ url.includes('home') ? 'current-page': ''}><Link to='/home'>HOME</Link> 
 							</li>
-							<li > <Link to='/profile'> PROFILE </Link> 
+							<li className={ url.includes('profile') ? 'current-page': ''}> <Link to='/profile'> PROFILE </Link> 
 							</li>
 							<li><a href="#"> JOURNAL </a>
 							</li>

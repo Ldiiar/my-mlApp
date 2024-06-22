@@ -18,17 +18,19 @@ import LikesPage from './components/LikesPage';
 
 export default function App() {
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
+	const [currPage, setCurrPage] = useState('home')
+
 
 
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Header />,
+			element: <Header currPage={currPage} setCurrPage={setCurrPage}/>,
 			errorElement: <PageNotFound />,
 			children: [
 				{
-					path: "/",
-					element: <Home />,
+					path: "/home",
+					element: <Home setCurrPage={setCurrPage}/>,
 				},
 				{
 					path: "/movie/:id",
@@ -52,7 +54,7 @@ export default function App() {
 				},
 				{
 					path: "/profile",
-					element: <ProfilePage />,
+					element: <ProfilePage setCurrPage={setCurrPage}/>,
 				},
 				{
 					path: "/profile/watchlist",
