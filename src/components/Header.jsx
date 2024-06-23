@@ -24,9 +24,11 @@ function Header() {
 					</div>
 					<nav>
 						<ul className={burgerMenu ? "burger-active" : ""}>
-							<li className={ url.includes('home') ? 'current-page': ''}><Link to='/home'>HOME</Link> 
+							<li className={ url.includes('home') ? 'current-page': ''} onClick={() => dispatch(toggleBurgerMenu())}>
+								<Link to='/home'>HOME</Link> 
 							</li>
-							<li className={ url.includes('profile') ? 'current-page': ''}> <Link to='/profile'> PROFILE </Link> 
+							<li className={ url.includes('profile') ? 'current-page': ''} onClick={() => dispatch(toggleBurgerMenu())}>
+								 <Link to='/profile'> PROFILE </Link> 
 							</li>
 							<li><a href="#"> JOURNAL </a>
 							</li>
