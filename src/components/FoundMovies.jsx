@@ -54,7 +54,9 @@ function searchPromt(name) {
 			{foundResults && foundResults.results?.length > 0 ? (
 				<FoundListing tag={"movies"} name={name}/>
 				) : (
-					<p>loading</p>
+					<div className="movie-list">
+						<h2> FOUND 0 MATCHES </h2>
+					</div>
 					)}
 		</div>
 	</>

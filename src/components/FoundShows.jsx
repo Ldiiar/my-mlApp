@@ -48,7 +48,9 @@ function FoundShows() {
 			{foundResults && foundResults.results?.length > 0 ? (
 				<FoundListing tag={"shows"} />
 				) : (
-					<p>loading</p>
+					<div className="movie-list">
+						<h2> FOUND 0 MATCHES </h2>
+					</div>
 					)}
 		</div>
 	</>

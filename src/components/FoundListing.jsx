@@ -25,6 +25,7 @@ function FoundListing(props) {
 		setPages(pageNumbers)
 	}, [foundResults])
 
+
 	function switchPages(pageNum) {
 				fetch(
 					`https://api.themoviedb.org/3/search/movie?query=${props.name}&api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=${pageNum}`
