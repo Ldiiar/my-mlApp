@@ -97,6 +97,14 @@
 		font-size: 1.5rem;
 		font-weight: 200;
 	} 
+	.card-inner-found .card-top{
+		width: 20%;
+	}
+	.card-inner-found .card-bottom{
+		width: 76%;
+		margin-bottom: 0px;
+		padding: 0px 0px 0px 0px;
+	}
 }
 @media screen and (width < 480px) {
 	.card-inner-found .card-info h4{
@@ -109,11 +117,10 @@
 }
 @media screen and (width < 640px) {
 	.card-inner-found .card-info h4{
-		font-size: 1.2rem;
+		font-size: 1.3rem;
 	}
 	.card-inner-found .card-info span{
 		font-size: 1rem;	
-		font-weight: 100;	
 	} 
 }
 
