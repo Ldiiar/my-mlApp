@@ -21,7 +21,7 @@ const MovieCard = (props) => {
 				<div className="card-bottom">
 					<div className="card-info">
 						<h4> {props.data.title} </h4>
-						<p>{year ? year: 'unknown'}</p>
+						<span>{year ? year: 'unknown'}</span>
 					</div>
 				</div>
 				</div>
@@ -32,7 +32,7 @@ const MovieCard = (props) => {
 				<div className="card-bottom">
 					<div className="card-info">
 						<h4> {props.data.title} </h4>
-						<p>{year ? year: 'unknown'}</p>
+						<span>{year ? year: 'unknown'}</span>
 					</div>
 				</div>
 				</div>

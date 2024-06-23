@@ -49,13 +49,6 @@
 	.card-inner-found .card-bottom{
 		display: block;
 	}
-	.card-info h4{
-		font-size: 1rem;
-		font-weight: 300;
-	}
-	.card-info span{
-		font-size: .7rem;
-	} 
 }
 
 													/*===	FOR FOUND MOVIES/SHOWS	===*/
@@ -107,12 +100,21 @@
 }
 @media screen and (width < 480px) {
 	.card-inner-found .card-info h4{
-		font-size: 1.5rem;
-		font-weight: 400;
+		font-size: 1rem;
 	}
 	.card-inner-found .card-info span{
-		font-size: 1.25rem;
+		font-size: .7rem;
 		font-weight: 100;
 	} 
 }
+@media screen and (width < 640px) {
+	.card-inner-found .card-info h4{
+		font-size: 1.2rem;
+	}
+	.card-inner-found .card-info span{
+		font-size: 1rem;	
+		font-weight: 100;	
+	} 
+}
+
 
