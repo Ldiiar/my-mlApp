@@ -96,7 +96,7 @@
 @media screen and (width <  700px) {
 	.the-review{
 		font-size: 1rem;
-		word-spacing: 1px;
+		word-spacing: 2px;
 		line-height: 20px;
 	}
 	.rev-by{
