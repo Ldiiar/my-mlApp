@@ -257,7 +257,6 @@ nav a:hover{
 		justify-content: space-between;
 	}
 	.reviews-content{
-		/*background-color: blueviolet;*/
 		width: 70%;
 	}
 	
@@ -293,7 +292,7 @@ nav a:hover{
 	.rev-movieName{
 		font-weight: 700;
 		font-family: 'PT Serif', serif;
-		font-size: 2.7rem;
+		font-size: 2.5rem;
 	}
 	.rev-movieName:hover{
 		cursor: pointer;
@@ -307,11 +306,15 @@ nav a:hover{
 		}
 		.rev-movieName{
 			font-weight: 700;
-			font-size: 2.1rem;
+			font-size: 1.8rem;
 		}
 		.revs-descriprion{
 
 		}
+		.reviews-of{
+			font-size: 1.1rem;
+		}
+	
 		.reviews-content{
 			width: 100%;
 		}

@@ -58,7 +58,7 @@ const ReviewElement = (props) => {
 			</div>
 			<div className="review-info">
 				<p className="reviewed">
-				{ratingByAuthir && <> <img src={goldStar} alt="" /> <span> {ratingByAuthir}</span></> }
+				{ratingByAuthir && <> <img src={goldStar} alt="" /> <span className='rating-of-ten'> {ratingByAuthir}</span></> }
 				<span className='rev-by'> Review by </span>
 				<span className='rev-by-author'>{props.data.author}</span> 
 				<span className='review-date'>{reviewFullReleaseDate}</span>
