@@ -449,8 +449,10 @@ nav a:hover{
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: .5em;
+		margin-top: 1em;
 	}
 	.social-links i{
+		margin-top: .5em;
 		margin-left: .5em;
 		font-size: 1.5rem;
 		opacity: .5;
@@ -477,10 +479,7 @@ nav a:hover{
 		letter-spacing: 3px;
 		transition: .1s;
 	}
-	/*.footer-logo:hover{
-		opacity: 1;
-	}*/
-	
+
 	@media screen and (max-width: 380px) {
 		.sector-one{
 			flex-direction: column;
@@ -492,6 +491,22 @@ nav a:hover{
 		}
 		.rights{
 			margin-bottom: 3em;
+		}
+	}
+	@media screen and (max-width: 540px) {
+		.sector-one{
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 1.25em;
+		}
+		.footer-logo{
+			font-size: 1.2rem;
+		}
+		.social-links i{
+			font-size: 1rem;
+		}
+		.rights{
+			font-size: .8rem;
 		}
 	}
 
