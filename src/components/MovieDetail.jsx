@@ -26,7 +26,7 @@ const MovieDetail = () => {
 	const itsTitle = movieDetails && movieDetails.title;
     const watchlist = useSelector((state) => state.detailsPage.watchlist)
     const likes = useSelector((state) => state.detailsPage.likes)
-	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.includes(item => item.id === id)? true : false)
+	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.some(item => item.id === id)? true : false)
 	const [isLiked, setIsLiked] = useState(likes.some(item => item.id === id));
 
 

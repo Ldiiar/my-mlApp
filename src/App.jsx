@@ -20,8 +20,7 @@ export default function App() {
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
 	const [currPage, setCurrPage] = useState('home')
 
-
-
+	
 	const router = createBrowserRouter([
 		{
 			path: "/",
