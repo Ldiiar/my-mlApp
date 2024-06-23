@@ -24,7 +24,7 @@ const MovieListing = () => {
 				return <MovieCard data={movie} key={movie.id} />;
 			})
 		) : (
-			<p>Loading movies.. .</p>
+			<p></p>
 		);
 	///
 	let renderUpcoming =
@@ -33,7 +33,7 @@ const MovieListing = () => {
 				return <MovieCard data={movie} key={movie.id} />;
 			})
 		) : (
-			<p>Loading movies.. .</p>
+			<p></p>
 		);
 	///
 	let renderShows =
@@ -42,7 +42,7 @@ const MovieListing = () => {
 				return <ShowCard data={show} key={show.id} />;
 			})
 		) : (
-			<p> Loading shows... </p>
+			<p></p>
 		);
 	///
 

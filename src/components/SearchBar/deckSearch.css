@@ -1,7 +1,7 @@
 
 .searchBar{
 	max-width: 300px;
-	padding: 10px 20px;
+	padding: 5px 15px;
 	border-radius: 30px;
 	background-color: white;
 	display: flex;
@@ -14,7 +14,7 @@
 	border: 0;
 	outline: 0;
 	flex: 1;
-	font-size: 18px;
+	font-size: .8rem;
 	color: grey;
 }
 
@@ -26,10 +26,10 @@
 	outline: 0;
 }
 .searchBar img{
-	max-width: 30px;
+	max-width: 20px;
 }
 
-@media screen and (width < 950px) {
+@media screen and (width < 701px) {
 	.searchBar{
 		display: none;
 	}

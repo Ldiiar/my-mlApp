@@ -35,7 +35,7 @@
 	display: none;
 }
 
-@media screen and (width < 950px) {
+@media screen and (width < 701px) {
 	.mobSearchBar{
 		margin: 0px 0px;
 		margin-top: 5em;

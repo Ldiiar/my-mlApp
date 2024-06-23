@@ -1,11 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useLocalStorage } from '../../components/common/useLocalStorage';
+import { useEffect } from 'react';
+
+
 
 let initialState = {
 	watchlist: [],
 	quantityWatchlist: 0,
 	likes: [],
 	quantityLikes: 0,
-}
+} 
+
+// let initialState = getItem() === undefined ? {
+// 	watchlist: [],
+// 	quantityWatchlist: 0,
+// 	likes: [],
+// 	quantityLikes: 0,
+// } : getItem()
+
+// const {setItem, getItem} = useLocalStorage('lists')
+
+// useEffect(() => {
+// 	setItem(initialState)
+// }, [initialState])
+
+
+
 
 const detailsSlice = createSlice({
 	name: 'detailsPage',
