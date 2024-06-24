@@ -3,7 +3,7 @@ export const mobSettings = {
 	infinite: false,
 	centerPadding: "60px",
 	slidesToShow: 4,
-	speed: 0,
+	speed: 100,
 	swipeToSlide: true,
 	arrows : false,
 	afterChange: function(index) {

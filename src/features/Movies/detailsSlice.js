@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 let initialState = { 
 	watchlist: [], 
 	quantityWatchlist: 0, 

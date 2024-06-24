@@ -222,7 +222,8 @@ const ShowDetail = () => {
 						<h2> {itsTitle} </h2>
 						<div className="trailer-container trailer-container-mob">
 							<div className="trailer-el" onClick={goToTrailer}>
-								<span> Trailer </span>
+								<span> Watch the </span>
+								<span> TRAILER </span>
 							<i class="fa-brands fa-square-youtube"></i>
 							</div>
 						</div>

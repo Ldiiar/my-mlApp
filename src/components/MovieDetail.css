@@ -30,8 +30,13 @@
 	width: 60%;
 }
 .details-right-mob h2{
-	font-size: 1.3rem;
+	font-family: serif;
+	font-family: 'PT Serif', serif;
+	font-weight: 600;
+	font-size: 2rem;
 }
+
+
 .trailer-container-mob{
 	width: 100%;
 }
@@ -78,6 +83,10 @@
 	.action-block span{
 		font-size: .8rem;
 	}
+	.details-right-mob h2{
+		font-size: 1.5rem;
+	}
+	
 }
 
 .liked-one i{
@@ -273,7 +282,6 @@
 }
 
 .reviws-more span:hover{
-	color: #45A29E  ;
 	color: aqua  ;
 }
 .details-info h2 {
@@ -307,10 +315,12 @@
 .space{
 	margin-bottom: 100px;
 }
+	*/
+
 .no-reviews{
 	font-size: 20px;
-	margin: 20px 0 20px 0;
-}*/
+	margin: 1.5em 0 3em 0;
+} 
 
 @media screen and (min-width: 640px) {
 	.back-poster {
@@ -320,7 +330,7 @@
 		display: none;
 	}
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
 	.trailer-container-deck{
 		display: none;
 	}
