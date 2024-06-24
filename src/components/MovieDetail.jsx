@@ -200,16 +200,18 @@ const MovieDetail = () => {
 	addMovieNameForRevs(itsTitle, movieDetails.poster_path);
 
 	return (
-		<div className="container">
-			{/*{ movieDetails && movieDetails.length > 0 
-			? (*/}
-				{backgPoster ? (
+		<div>
+			{backgPoster ? (
 					<img
 						className="back-poster"
 						src={backgPoster}
 						alt="Image"
 					/>
 			) : ( <div className="space"></div>)}
+		<div className="container">
+			{/*{ movieDetails && movieDetails.length > 0 
+			? (*/}
+				
 
 				<div className="details-inner">
 					<div className="details-second-block">
@@ -323,6 +325,8 @@ const MovieDetail = () => {
 				</div>
 			{/*) : ( <p>Loading...</p> )}*/}
 		</div>
+	</div>
+
 	);
 };
 

@@ -90,11 +90,10 @@ img{
 		justify-content: space-between;
 	}
 
-	/*.main-logo{
-		font-size: 25px;
+	.main-logo span{
+		font-size: 1.5rem;
 		font-weight: 200;
-		padding: 20px 0px;		
-	}*/
+	}
 
 }
 
@@ -163,9 +162,10 @@ nav a:hover{
 		display: block;
 		position: absolute;
 		right: 25px;
-		top: 27px;
+		top: 20px;
 		cursor: pointer;
 		z-index: 10;
+		font-size: 1.7rem;
 	}	
 	.burger-menu-fixed{
 		position: fixed;
