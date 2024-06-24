@@ -56,6 +56,7 @@
 	align-items: center;
 	justify-content: space-around;
 	margin-top: 1.5em;
+	margin-bottom: 2em;
 	background-color: rgb(61, 74, 87);
 }
 .actions-block i{
