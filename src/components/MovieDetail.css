@@ -7,8 +7,8 @@
 .back-poster {
 	width: 100%;
 	margin: 0 auto; 
-	max-width: 1200px;
-	/* height: 200px; */
+	max-width: 1000px;
+	/* height: 30vh; */
 	object-fit: cover;
 	/*overflow: hidden;*/
 	object-position: top;
@@ -361,16 +361,19 @@
 }
 @media screen and (min-width: 768px) {
 	.details-inner {
-		margin: 2em 2em 0px;
+		/* margin: 2em 2em 0px; */
 	}
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1000px) {
 	.details-inner {
-		margin: 3em 3em 0px;
+		margin: 2em 2em 0px;
+	}
+	.back-poster {
+		height: 400px;
 	}
 }
 @media screen and (min-width: 1280px) {
 	.back-poster {
-		height: 400px;
+		/* height: 500px; */
 	}
 }
