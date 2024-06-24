@@ -9,8 +9,10 @@ import {
 } from "../features/Movies/movieSlice";
 import {
 	addToLikes,
+	addToWatched,
 	addToWatchlist,
 	removeFromLikes,
+	removeFromWatched,
 	removeFromWatchlist
 } from "../features/Movies/detailsSlice";
 import { addMovieName, addMoviePoster } from "../features/Movies/reviewSlice";
@@ -18,6 +20,7 @@ import "./MovieDetail.css";
 import ReviewElement from "./Reviews/ReviewEl";
 import { Link, Outlet } from "react-router-dom";
 import unknownImg from "../assets/baseImage.jpg";
+import thinEye from '../assets/eyeThin.svg'
 
 const MovieDetail = () => {
 	const { id } = useParams();
@@ -26,8 +29,10 @@ const MovieDetail = () => {
 	const itsTitle = movieDetails && movieDetails.title;
     const watchlist = useSelector((state) => state.detailsPage.watchlist)
     const likes = useSelector((state) => state.detailsPage.likes)
-	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.some(item => item.id === id)? true : false)
+    const watched = useSelector((state) => state.detailsPage.watched)
+	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.some(item => item.id === id))
 	const [isLiked, setIsLiked] = useState(likes.some(item => item.id === id));
+	const [isWatched, setIsWatched] = useState(watched.some(item => item.id === id));
 
 
 	function toggleIsWatchlisted() {
@@ -47,6 +52,15 @@ const MovieDetail = () => {
 		} else{
 			dispatch(addToLikes([id, cardImgLink]))
 			setIsLiked(true)
+		}
+	}
+	function toggleIsWatched() {
+		if(isWatched){
+			dispatch(removeFromWatched([id, cardImgLink]))
+			setIsWatched(false)
+		} else{
+			dispatch(addToWatched([id, cardImgLink]))
+			setIsWatched(true)
 		}
 	}
 
@@ -215,7 +229,8 @@ const MovieDetail = () => {
 					<h2> {itsTitle} </h2>
 						<div className="trailer-container trailer-container-mob">
 							<div className="trailer-el" onClick={goToTrailer}>
-								<span> Trailer </span>
+								<span> Watch the </span>
+								<span> TRAILER </span>
 							<i class="fa-brands fa-square-youtube"></i>
 							</div>
 						</div>
@@ -226,19 +241,40 @@ const MovieDetail = () => {
 					<div className="details-title-deck">
 						<h2> {itsTitle} </h2>
 					</div>
-					<div className="actions">
-					<div className='watchlist-block' onClick={()=> { toggleIsWatchlisted() }}>
-						<i class={isWatchlisted? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} ></i>
-						<span>Watchlist</span>
-					</div>
-					<div className="like-block" onClick={() => { toggleIsLiked() }}>
-						{isLiked
-						? <div className="liked-one"> 
-						<i class="fa-solid fa-heart"></i>
-						</div>
-						: <div className=""><i class="fa-regular fa-heart"></i></div>
-						}
 
+					<div className="actions">
+					<div className="action-block" onClick={() => { toggleIsWatchlisted() }}>
+						{isWatchlisted
+							? <div className="watchlisted-one"> 
+								<i class="fa-solid fa-bookmark"></i>
+									<span>Watchlisted</span>
+								</div>
+							: <div className='to-action'>
+								<i class="fa-regular fa-bookmark"></i>
+								<span>Watchlist</span> </div>
+					}
+					</div>
+					<div className="action-block" onClick={() => { toggleIsWatched() }}>
+						{isWatched
+							? <div className="watched-one"> 
+								<i class="fa-solid fa-eye"></i>
+									<span>Watched</span>
+								</div>
+							: <div className='to-action'>
+								<i class="fa-regular fa-eye"></i>
+								<span>Watch</span> </div>
+					}
+					</div>
+					<div className="action-block" onClick={() => { toggleIsLiked() }}>
+						{isLiked
+							? <div className="liked-one"> 
+								<i class="fa-solid fa-heart"></i>
+								<span>Liked</span>
+								</div>
+							: <div className='to-action'>
+							<i class="fa-regular fa-heart"></i>
+							<span>Like</span> </div>
+						}
 					</div>
 					</div>
 						<p className="tagLine">{tagLine?.toUpperCase()}</p>

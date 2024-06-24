@@ -8,8 +8,7 @@ import {
 } from "../features/Movies/movieSlice";
 import MobSearchBar from  "./SearchBar/MobSearchBar";
 
-const Home = (props) => {
-	props.setCurrPage('home')
+const Home = () => {
 	const [inputValue, setInputValue] = React.useState("");
 	const handleInputChange = (event) => {
 		setInputValue(event.target.value);

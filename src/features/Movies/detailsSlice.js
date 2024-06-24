@@ -7,6 +7,8 @@ let initialState = {
 	quantityWatchlist: 0, 
 	likes: [], 
 	quantityLikes: 0, 
+	watched: [], 
+	quantityWatched: 0, 
 }
 
 
@@ -41,10 +43,23 @@ const detailsSlice = createSlice({
 			state.likes = [...filteredNewLikes]
 			state.quantityLikes--
 		},
-		
+		addToWatched: (state, action) => {
+			const [id, cover, message] = action.payload
+			state.watched = [...state.watched, {id: id, cover: cover, message: message === 'tv' ? 'tv' : 'movie'}]
+			state.quantityWatched++
+		},
+		removeFromWatched: (state, action) => {
+			const [id, cover] = action.payload
+			const mathingItem = state.watched.find((el) => el.id === id)
+			const filteredNewWatched = state.watched.filter((item) => item !== mathingItem)
+			state.watched = [...filteredNewWatched]
+			state.quantityWatched--
+		},
 	}
 })
 
 export default detailsSlice.reducer
-export const {addToWatchlist, removeFromWatchlist, addToLikes, removeFromLikes} = detailsSlice.actions
+export const {addToWatchlist, removeFromWatchlist, 
+	addToLikes, removeFromLikes, 
+	addToWatched, removeFromWatched} = detailsSlice.actions
 export const getAllWatchlist = (state) => state.detailsPage.watchlist

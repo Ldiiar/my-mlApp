@@ -12,24 +12,22 @@ import "./index.css";
 import ReviewsPage from "./components/ReviewsPage";
 import FoundShows from "./components/FoundShows";
 import { useSelector } from "react-redux";
-import WatchlistPage from './components/WatchlistPage';
+import ListPage from './components/ListPage';
 import ProfilePage from './components/ProfilePage';
-import LikesPage from './components/LikesPage';
 
 export default function App() {
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
-	const [currPage, setCurrPage] = useState('home')
 
 	
 	const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <Header currPage={currPage} setCurrPage={setCurrPage}/>,
+			element: <Header />,
 			errorElement: <PageNotFound />,
 			children: [
 				{
 					path: "/home",
-					element: <Home setCurrPage={setCurrPage}/>,
+					element: <Home />,
 				},
 				{
 					path: "/movie/:id",
@@ -53,16 +51,21 @@ export default function App() {
 				},
 				{
 					path: "/profile",
-					element: <ProfilePage setCurrPage={setCurrPage}/>,
+					element: <ProfilePage />,
 				},
 				{
 					path: "/profile/watchlist",
-					element: <WatchlistPage />,
+					element: <ListPage />,
 				},
 				{
 					path: "/profile/likes",
-					element: <LikesPage />,
+					element: <ListPage />,
 				},
+				{
+					path: "/profile/watched",
+					element: <ListPage />,
+				},
+			
 			],
 		},
 	]);

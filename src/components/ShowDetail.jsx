@@ -11,7 +11,7 @@ import { nanoid } from "@reduxjs/toolkit";
 import ReviewElement from "./Reviews/ReviewEl";
 import { Link, Outlet } from "react-router-dom";
 import trailerIcon from "../assets/trailer-icon.png";
-import { addToLikes, addToWatchlist, removeFromLikes, removeFromWatchlist } from '../features/Movies/detailsSlice';
+import { addToLikes, addToWatched, addToWatchlist, removeFromLikes, removeFromWatched, removeFromWatchlist } from '../features/Movies/detailsSlice';
 
 const ShowDetail = () => {
 	const showDetails = useSelector((state) => state.movies.selectedOne);
@@ -24,8 +24,11 @@ const ShowDetail = () => {
 
 	const watchlist = useSelector((state) => state.detailsPage.watchlist)
     const likes = useSelector((state) => state.detailsPage.likes)
+    const watched = useSelector((state) => state.detailsPage.watched)
 	const [isWatchlisted, setIsWatchlisted] = useState(watchlist.some(item => item.id === id))
 	const [isLiked, setIsLiked] = useState(likes.some(item => item.id === id));
+	const [isWatched, setIsWatched] = useState(watched.some(item => item.id === id));
+
 
 
 	function toggleIsWatchlisted() {
@@ -45,6 +48,16 @@ const ShowDetail = () => {
 		} else{
 			dispatch(addToLikes([id, cardImgLink, 'tv']))
 			setIsLiked(true)
+		}
+	}
+
+	function toggleIsWatched() {
+		if(isWatched){
+			dispatch(removeFromWatched([id, cardImgLink]))
+			setIsWatched(false)
+		} else{
+			dispatch(addToWatched([id, cardImgLink, 'tv']))
+			setIsWatched(true)
 		}
 	}
 
@@ -220,7 +233,7 @@ const ShowDetail = () => {
 						<h2> {itsTitle} </h2>
 					</div>
 
-					<div className="actions">
+					{/* <div className="actions">
 					<div className='watchlist-block' onClick={()=> { toggleIsWatchlisted() }}>
 						<i class={isWatchlisted? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} ></i>
 						<span>Watchlist</span>
@@ -234,7 +247,43 @@ const ShowDetail = () => {
 						}
 
 					</div>
+					</div> */}
+					<div className="actions">
+					<div className="action-block" onClick={() => { toggleIsWatchlisted() }}>
+						{isWatchlisted
+							? <div className="watchlisted-one"> 
+								<i class="fa-solid fa-bookmark"></i>
+									<span>Watchlisted</span>
+								</div>
+							: <div className='to-action'>
+								<i class="fa-regular fa-bookmark"></i>
+								<span>Watchlist</span> </div>
+					}
 					</div>
+					<div className="action-block" onClick={() => { toggleIsWatched() }}>
+						{isWatched
+							? <div className="watched-one"> 
+								<i class="fa-solid fa-eye"></i>
+									<span>Watched</span>
+								</div>
+							: <div className='to-action'>
+								<i class="fa-regular fa-eye"></i>
+								<span>Watch</span> </div>
+					}
+					</div>
+					<div className="action-block" onClick={() => { toggleIsLiked() }}>
+						{isLiked
+							? <div className="liked-one"> 
+								<i class="fa-solid fa-heart"></i>
+								<span>Liked</span>
+								</div>
+							: <div className='to-action'>
+							<i class="fa-regular fa-heart"></i>
+							<span>Like</span> </div>
+						}
+					</div>
+					</div>
+
 
 					<p className="tagLine">{tagLine}</p>
 					<p className="details-description">{itsDescription}</p>
