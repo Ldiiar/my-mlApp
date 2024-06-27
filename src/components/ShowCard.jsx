@@ -8,10 +8,13 @@ export default function ShowCard (props) {
 	const year = yearObj.getFullYear()
 	const cardImgLink =  props.data.poster_path ? `https://image.tmdb.org/t/p/original${props.data.poster_path}`
 	: undefined ;
+	function scrollToTop(){
+		window.scrollTo(0,0)
+	}
 
 	return(
 			<div className="card-item">
-			<Link to={`/tv/${props.data.id}`}>
+			<Link to={`/tv/${props.data.id}`} onClick={scrollToTop}>
 			<div className={`card-inner ${'card-inner-'+ props.type}`}>
 				<div className="card-top">
 					<img src={cardImgLink ? cardImgLink : unknown} alt='Image' />

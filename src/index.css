@@ -252,7 +252,8 @@ nav a:hover{
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 	.revpage-blocks{
-		margin-top: 6em;
+		margin-top: 3em;
+		margin-bottom: 3em;
 		display: flex;
 		justify-content: space-between;
 	}

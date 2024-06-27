@@ -12,10 +12,12 @@ function FoundListing(props) {
 	const searchingPromt = useSelector((state) => state.movies.searchingPromt);
 	const foundResults = useSelector((state) => state.movies.foundMovies);
 	const dispatch = useDispatch();
-	console.log(foundResults);
 
 	const [pages, setPages] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
+	function scrollToTop(){
+		window.scrollTo(0,0)
+	}
 
 	useEffect(() => {
 		let pageNumbers = []
@@ -32,7 +34,7 @@ function FoundListing(props) {
 				)
 					.then((res) => res.json())
 					.then((data) => dispatch(setFoundMovies(data)));
-		console.log(pageNum);
+			scrollToTop()
 		setCurrentPage(pageNum)
 		}	
 
@@ -52,7 +54,6 @@ function FoundListing(props) {
 		) : (
 			<p>Nothing found for '{searchingPromt}'</p>
 		);
-	
 	
 
 

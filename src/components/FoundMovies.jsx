@@ -12,9 +12,7 @@ import MobSearchBar from "./SearchBar/MobSearchBar";
 
 const FoundMovies = () => {
 const { name } = useParams();	
-
 const dispatch = useDispatch();
-
 function encode(text) {
     return text.replace("%20", " ");
 }

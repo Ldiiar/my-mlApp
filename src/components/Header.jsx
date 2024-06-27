@@ -10,6 +10,10 @@ function Header() {
 	const dispatch = useDispatch();
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
 
+	const scrollToTop = () => {
+        window.scrollTo(0, 0);
+    };
+
 	return (
 		<div>
 			<header>
@@ -25,18 +29,18 @@ function Header() {
 					<nav>
 						<ul className={burgerMenu ? "burger-active" : ""}>
 							<li className={ url.includes('home') ? 'current-page': ''} onClick={() => dispatch(toggleBurgerMenu())}>
-								<Link to='/home'>HOME</Link> 
+								<Link to='/home' onClick={scrollToTop}>HOME</Link> 
 							</li>
 							<li className={ url.includes('profile') ? 'current-page': ''} onClick={() => dispatch(toggleBurgerMenu())}>
-								 <Link to='/profile'> PROFILE </Link> 
+								 <Link to='/profile' onClick={scrollToTop}> PROFILE </Link> 
 							</li>
-							<li><a href="#"> JOURNAL </a>
+							<li><a href="#" onClick={scrollToTop}> JOURNAL </a>
 							</li>
 						</ul>
 						<div onClick={() => dispatch(toggleBurgerMenu())} 
 						className={`burger-menu${burgerMenu ? ' burger-menu-fixed' : ''}`}>
 							{ burgerMenu 
-							? <i class="fa-solid fa-xmark"></i>
+							? <i class="fa-solid fa-xmark" onClick={scrollToTop}></i>
 							: <i class="fa-solid fa-bars"></i>
 							}
 						</div>

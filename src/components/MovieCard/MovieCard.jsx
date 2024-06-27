@@ -9,10 +9,13 @@ const MovieCard = (props) => {
 	const year = yearObj.getFullYear()
 	const cardImgLink = props.data.poster_path ? `https://image.tmdb.org/t/p/original${ props.data.poster_path}`
 	: undefined ;
+	const scrollToTop = () => {
+		window.scrollTo(0,0)
+	}
 
 	return (
 		<div className="card-item">
-			<Link to={`/movie/${props.data.id}`}>
+			<Link to={`/movie/${props.data.id}`} onClick={scrollToTop}>
 				{  props.type  === "found" 
 				? <div className="card-inner-found">
 				<div className="card-top">

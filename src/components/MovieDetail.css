@@ -8,9 +8,7 @@
 	width: 100%;
 	margin: 0 auto; 
 	max-width: 1000px;
-	/* height: 30vh; */
 	object-fit: cover;
-	/*overflow: hidden;*/
 	object-position: top;
 }
 
@@ -74,7 +72,6 @@
 
 @media screen and (width < 768px) {
 	.action-block span{
-		/* font-size: .8rem; */
 	}
 	.watchlist-block{
 	width: 30%;
@@ -271,7 +268,6 @@
 
 .reviws-more{
 	border-bottom: 2px solid #4F4F4F;
-	/*align-items: end;*/
 	display: flex;
 	justify-content: space-between;
 }
