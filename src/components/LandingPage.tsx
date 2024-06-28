@@ -30,9 +30,9 @@ export default function LandingPage() {
       <div className="">
         <img src={landPoster2} className='back-poster' alt="" />
         <div className='flex flex-col justify-center items-center mt-4 mb-8 '>
-            <span className='text-4xl font-serif'>Start your journey to the cinema: track what</span>
-            <span className='text-4xl font-serif'> you've watched, like, save</span>
-            <span className='text-4xl font-serif'> to watch later, etc.</span>
+            <span className='sm:text-xl md:text-2xl lg:text-4xl font-serif'>Start your journey to the cinema: track what</span>
+            <span className='sm:text-xl md:text-2xl lg:text-4xl font-serif'> you've watched, like, save</span>
+            <span className='sm:text-xl md:text-2xl lg:text-4xl font-serif'> to watch later, etc.</span>
         </div>
         <div className="flex justify-center mb-4">
           <Link to='./home'>
