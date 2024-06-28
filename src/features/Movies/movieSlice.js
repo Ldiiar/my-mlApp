@@ -15,14 +15,27 @@ const movieSlice = createSlice({
 	name: "movies",
 	initialState,
 	reducers: {
-		addMovies: (state, { payload }) => {
-			state.movies = payload;
+		addMovies: (state) => {
+			fetch(
+				"https://api.themoviedb.org/3/movie/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
+			)
+				.then((res) => res.json())
+				.then((data) => state.movies = data)
+			
 		},
-		addUpcomingMovies: ( state, { payload } ) => {
-			state.upcomingMovies = payload
+		addUpcomingMovies: (state) => {
+				fetch(
+					"https://api.themoviedb.org/3/movie/upcoming?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
+				)
+					.then((res) => res.json())
+					.then((data) => state.upcomingMovies = data);
 		},
-		addShows: (state, { payload }) => {
-			state.shows = payload
+		addShows: (state) => {
+			fetch(
+				"https://api.themoviedb.org/3/tv/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
+			)
+				.then((res) => res.json())
+				.then((data) => state.shows = data);
 		},
 		addSelectedOne: (state, {payload}) => {
 			state.selectedOne = payload

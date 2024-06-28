@@ -16,32 +16,9 @@ const Home = () => {
 	const dispatch = useDispatch();
 
 	React.useEffect(() => {
-		function fetchMovies() {
-			fetch(
-				"https://api.themoviedb.org/3/movie/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US"
-			)
-				.then((res) => res.json())
-				.then((data) => dispatch(addMovies(data)));
-		}
-		fetchMovies();
-
-		function fetchUpcoming() {
-			fetch(
-				"https://api.themoviedb.org/3/movie/upcoming?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
-			)
-				.then((res) => res.json())
-				.then((data) => dispatch(addUpcomingMovies(data)));
-		}
-		fetchUpcoming();
-
-		function fetchShows() {
-			fetch(
-				"https://api.themoviedb.org/3/tv/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
-			)
-				.then((res) => res.json())
-				.then((data) => dispatch(addShows(data)));
-		}
-		fetchShows();
+		dispatch(addMovies())
+		dispatch(addUpcomingMovies())
+		dispatch(addShows())
 	}, []);
 
 	return (

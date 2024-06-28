@@ -16,7 +16,10 @@ function FoundListing(props) {
 	const [pages, setPages] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
 	function scrollToTop(){
-		window.scrollTo(0,0)
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth'
+		})
 	}
 
 	useEffect(() => {

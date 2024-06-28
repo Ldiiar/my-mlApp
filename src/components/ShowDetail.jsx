@@ -7,9 +7,8 @@ import {
 	addTrailerLink,
 	removeSelectedOne,
 } from "../features/Movies/movieSlice";
-import { nanoid } from "@reduxjs/toolkit";
 import ReviewElement from "./Reviews/ReviewEl";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import trailerIcon from "../assets/trailer-icon.png";
 import { addToLikes, addToWatched, addToWatchlist, removeFromLikes, removeFromWatched, removeFromWatchlist } from '../features/Movies/detailsSlice';
 
@@ -72,10 +71,8 @@ const ShowDetail = () => {
 				dispatch(removeSelectedOne());
 			};
 		},
-		[id]
-	);
 
-	useEffect(
+
 		function getReviews() {
 			fetch(
 				`https://api.themoviedb.org/3/tv/${id}/reviews?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1`
@@ -234,21 +231,6 @@ const ShowDetail = () => {
 						<h2> {itsTitle} </h2>
 					</div>
 
-					{/* <div className="actions">
-					<div className='watchlist-block' onClick={()=> { toggleIsWatchlisted() }}>
-						<i class={isWatchlisted? "fa-solid fa-bookmark" : "fa-regular fa-bookmark"} ></i>
-						<span>Watchlist</span>
-					</div>
-					<div className="like-block" onClick={() => { toggleIsLiked() }}>
-						{isLiked
-						? <div className="liked-one"> 
-						<i class="fa-solid fa-heart"></i>
-						</div>
-						: <div className=""><i class="fa-regular fa-heart"></i></div>
-						}
-
-					</div>
-					</div> */}
 					<div className="actions">
 					<div className="action-block" onClick={() => { toggleIsWatchlisted() }}>
 						{isWatchlisted

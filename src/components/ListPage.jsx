@@ -18,23 +18,22 @@ export default function WatchlistPage() {
     let itsQuantity
 
     function whatPage() {
-    if ( url.includes('watchlist')) {
-        currPage = 'Watchlist'
-        itsQuantity = quantityWatchlist
-       return watchlist
-    } else if (url.includes('likes')){
-        currPage = 'Likes'
-        itsQuantity = quantityLikes
-      return likedOnes
-    } else if (url.includes('watched')){
-        currPage = 'Watched'
-        itsQuantity = quantityWatched
-      return watched
-    }
+      if ( url.includes('watchlist')) {
+           currPage = 'Watchlist'
+           itsQuantity = quantityWatchlist
+         return watchlist
+      } else if (url.includes('likes')){
+           currPage = 'Likes'
+           itsQuantity = quantityLikes
+        return likedOnes
+      } else if (url.includes('watched')){
+           currPage = 'Watched'
+           itsQuantity = quantityWatched
+        return watched
+      }
   }
 
     const renderList = whatPage().map(item => <Link to={`/${item.message}/${item.id}`}> <img src={item.cover} alt="" key={item.id}/> </Link> )
-
 
 
 

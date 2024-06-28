@@ -7,19 +7,24 @@
 	max-width: 213px;
 	margin-top: 30px;
 }
-.card-item:hover{
+.card-inner-found, .card-inner:hover{
 	/* border: 3px solid green; */
+	border-radius: 8px;
 	transform: scale(1.05);
-	transition: all 0.17s;
+	transition: all 0.17s ;
 }
 
 .card-top{
 	max-width: 210px;
-	max-height: 315px;
+	max-height: 320px;
 }
+
 .card-top img{
 	max-height: 100%;
 	max-width: 100%;
+}
+.card-inner-found, .card-inner{
+	border-radius: 8px;
 }
 
 .card-info h4{

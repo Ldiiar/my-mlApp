@@ -10,7 +10,7 @@ function Header() {
 	const dispatch = useDispatch();
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
 
-	const scrollToTop = () => {
+	function scrollToTop () {
         window.scrollTo(0, 0);
     };
 
@@ -19,7 +19,7 @@ function Header() {
 			<header>
 				<div className="container container-flex">
 					<div className="site-title">
-						<Link to="/home">
+						<Link to="/">
 							<div className="main-logo">
 								<img src={gun} alt="" />
 								<span>MovieLab</span>

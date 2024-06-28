@@ -14,6 +14,7 @@ import FoundShows from "./components/FoundShows";
 import { useSelector } from "react-redux";
 import ListPage from './components/ListPage';
 import ProfilePage from './components/ProfilePage';
+import LandingPage from './components/LandingPage';
 
 export default function App() {
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
@@ -25,6 +26,10 @@ export default function App() {
 			element: <Header />,
 			errorElement: <PageNotFound />,
 			children: [
+				{
+					path: "/",
+					element: <LandingPage />,
+				},
 				{
 					path: "/home",
 					element: <Home />,
