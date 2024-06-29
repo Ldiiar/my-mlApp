@@ -3,7 +3,7 @@ import YouTube from 'react-youtube'
 
 export default function YotubeVideo(props) {
     const [currVid, setCurrVid] = useState(0)
-    const [trailerLink, setTrailerLink] = useState('XtFI7SNtVpY')
+    const [trailerLink, setTrailerLink] = useState('')
     async function getAllTrailers(id) {
         const apiKey = '0bf633ba86a7dcd730bf18d481aa851d';
         const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`;
@@ -28,12 +28,22 @@ export default function YotubeVideo(props) {
        let trailerLinks = await Promise.all(allVids.map(getAllTrailers));
        console.log(trailerLinks);
        
-       setTrailerLink(trailerLinks[currVid].results[currVid].key)
+      //  setTrailerLink(trailerLinks[currVid].results[currVid].key)
+      let mathingTrailers = trailerLinks[currVid].results.map((item) => {
+         return item.type === "Trailer" ? item.key : "";
+       });
+     const oneTrailerLink = mathingTrailers && mathingTrailers.filter((el) => {
+         return el !== "";
+       });
+       console.log(oneTrailerLink);
+       setTrailerLink(oneTrailerLink[0])
+       if (trailerLink === undefined) {
+          setTrailerLink('XtFI7SNtVpY')
+       }
 
 
        console.log(trailerLink);
-       
-        console.log('Trailer Links:', trailerLinks);
+      console.log('Trailer Links:', trailerLinks);
       }
       
       (async () => {

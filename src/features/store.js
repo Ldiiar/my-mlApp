@@ -3,6 +3,7 @@ import movieReducer from  './Movies/movieSlice'
 import reviewReducer from  './Movies/reviewSlice'
 import detailsReducer from  './Movies/detailsSlice'
 import burgerReducer from  './Movies/burgerSlice'
+import profileReducer from  './Movies/profileSlice'
 
 // REDUX-PERSIST
 import storage from 'redux-persist/lib/storage';
@@ -20,6 +21,7 @@ const reducer = combineReducers({
 	reviewsPage: reviewReducer,  
 	detailsPage: detailsReducer,  
 	burgerMenu: burgerReducer,  
+	profile: profileReducer,  
 })
 
 const persistedReducer = persistReducer(persistCongif, reducer)
