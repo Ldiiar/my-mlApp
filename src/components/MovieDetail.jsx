@@ -24,7 +24,7 @@ import thinEye from '../assets/eyeThin.svg'
 
 const MovieDetail = () => {
 	const { id } = useParams();
-	const url = `https://api.themoviedb.org/3/movie/${id}?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US`
+	const apiKey = `api_key=0bf633ba86a7dcd730bf18d481aa851d`
 	const movieDetails = useSelector((state) => state.movies.selectedOne);
 	const allReviews = useSelector((state) => state.movies.reviews.results);
 	const itsTitle = movieDetails && movieDetails.title;
@@ -111,25 +111,37 @@ const MovieDetail = () => {
 	const dispatch = useDispatch();
 	useEffect(
 		function fetchMovieDetail() {
-			fetch(url)
+			fetch(
+				`https://api.themoviedb.org/3/movie/${id}?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US`
+			)
 				.then((res) => res.json())
 				.then((data) => dispatch(addSelectedOne(data)));
 			return () => {
 				dispatch(removeSelectedOne());
 			};
 		},
+		[id]
+	);
 
+	useEffect(
 		function getTrailerLink() {
-			fetch(url)
+			fetch(
+				`https://api.themoviedb.org/3/movie/${id}/videos?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US`
+			)
 				.then((res) => res.json())
 				.then((data) => dispatch(addTrailerLink(data)));
 			return () => {
 				dispatch(removeSelectedOne());
 			};
 		},
+		[id]
+	);
 
+	useEffect(
 		function getReviews() {
-			fetch(url)
+			fetch(
+				`https://api.themoviedb.org/3/movie/${id}/reviews?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1`
+			)
 				.then((res) => res.json())
 				.then((data) => dispatch(addReviews(data)));
 			return () => {
@@ -140,7 +152,11 @@ const MovieDetail = () => {
 	);
 
 	
+	
 	function goToTrailer() {
+		console.log(trailerLink);
+		console.log(allTrailerLinks);
+		console.log(trailerInfo);
 		const youtubeUrl = `https://www.youtube.com/watch?v=${trailerLink[0]}`;
 		window.open(youtubeUrl, "_blank");
 	}
@@ -198,8 +214,6 @@ const MovieDetail = () => {
 					/>
 			) : ( <div className="space"></div>)}
 		<div className="container">
-			{/*{ movieDetails && movieDetails.length > 0 
-			? (*/}
 				
 
 				<div className="details-inner">

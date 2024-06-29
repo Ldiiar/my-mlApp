@@ -26,8 +26,11 @@ export default function YotubeVideo(props) {
         console.log('Movie IDs:', allVids);
       
        let trailerLinks = await Promise.all(allVids.map(getAllTrailers));
-       setTrailerLink(trailerLinks[currVid].results[currVid].key)
+       console.log(trailerLinks);
        
+       setTrailerLink(trailerLinks[currVid].results[currVid].key)
+
+
        console.log(trailerLink);
        
         console.log('Trailer Links:', trailerLinks);
