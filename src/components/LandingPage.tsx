@@ -32,7 +32,8 @@ export default function LandingPage() {
       <div className="">
         <img src={landPoster4} className='back-poster' alt="" />
         <div className='flex flex-col justify-center items-center mt-4 mb-8 '>
-            <p className='font-serif text-center w-3/4 text-base font-medium sm:text-xl md:text-2xl lg:text-4xl xl:font-semibold' >Start your journey to the cinema: track what you've watched, like, save to watch later, etc</p>
+            <p className='font-serif text-center w-3/4 text-lg font-semibold sm:text-xl md:text-2xl lg:text-4xl xl:font-semibold' >
+            Start your journey to the cinema: track what you've watched, like, save to watch later, etc</p>
         </div>
         <div className="flex justify-center mb-4">
           <Link to='./home'>
@@ -47,7 +48,7 @@ export default function LandingPage() {
         <div className="flex justify-center mb-8 lg:mb-16">
             {renderList}
         </div>
-        <p className=" text-zinc-400 text-left text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> TRAILERS:</p>
+        <p className=" text-zinc-400 text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> TRAILERS:</p>
         <div className=" mb-10 sm:mb-20  md:mb-30 ">
           <YotubeVideo vids={fisrtFourPopMovies}/>
         </div>
