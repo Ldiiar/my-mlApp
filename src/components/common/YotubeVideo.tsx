@@ -27,6 +27,7 @@ export default function YotubeVideo(props) {
       
        let trailerLinks = await Promise.all(allVids.map(getAllTrailers));
        setTrailerLink(trailerLinks[currVid].results[currVid].key)
+       
        console.log(trailerLink);
        
         console.log('Trailer Links:', trailerLinks);
@@ -44,8 +45,7 @@ export default function YotubeVideo(props) {
         width: "90%",
         height: '390px',
         playerVars: {
-            autoplay: true,
-            muted: true,
+            autoplay: 0,
         }
     }
 

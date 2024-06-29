@@ -21,7 +21,6 @@ const movieSlice = createSlice({
 			)
 				.then((res) => res.json())
 				.then((data) => state.movies = data)
-			
 		},
 		addUpcomingMovies: (state) => {
 				fetch(

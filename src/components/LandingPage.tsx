@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 // import landPoster from '../assets/land-poster.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -10,21 +10,23 @@ import YotubeVideo from './common/YotubeVideo'
 
 
 export default function LandingPage() {
-
+  // const [renderList, setRenderList] = useState('')
   const dispatch = useDispatch()
-  let fisrtFourPopMovies
-  dispatch(addMovies())
-  const popMovies = useSelector(state => state.movies.movies.results)
-
-  function getFourMovies(){
-      fisrtFourPopMovies = popMovies?.slice(0,4)
+  useEffect(() => {
+    dispatch(addMovies())
+  },[])
+      const popMovies = useSelector(state => state.movies.movies.results)
+      console.log(popMovies);
+      
+    
+      let fisrtFourPopMovies = popMovies?.slice(0,4)
       console.log(fisrtFourPopMovies);
-      return fisrtFourPopMovies
-  }
+    
+      const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
+        fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
+      ) : <p></p>
+  
 
-  const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
-    fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
-  ) : <p></p>
 
 
   return (
