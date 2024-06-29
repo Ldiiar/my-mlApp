@@ -22,7 +22,7 @@ export default function LandingPage() {
       return fisrtFourPopMovies
   }
 
-  const renderList = getFourMovies().length > 0 ? (
+  const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
     fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
   ) : <p></p>
 
@@ -32,7 +32,7 @@ export default function LandingPage() {
       <div className="">
         <img src={landPoster4} className='back-poster' alt="" />
         <div className='flex flex-col justify-center items-center mt-4 mb-8 '>
-            <p className='font-serif text-center w-3/4 text-lg font-semibold sm:text-xl md:text-2xl lg:text-4xl xl:font-semibold' >
+            <p className='font-serif text-center w-5/6 sm:w-3/4 text-lg font-semibold sm:text-xl md:text-2xl lg:text-4xl xl:font-semibold' >
             Start your journey to the cinema: track what you've watched, like, save to watch later, etc</p>
         </div>
         <div className="flex justify-center mb-4">
