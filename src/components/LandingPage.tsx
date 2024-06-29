@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import landPoster2 from '../assets/poster-second.jpeg'
-import landPoster3 from '../assets/poster-third.webp'
 import landPoster4 from '../assets/poster-four.jpg'
 import { addMovies } from '../features/Movies/movieSlice'
 import MovieCard from './MovieCard/MovieCard'
@@ -49,7 +48,7 @@ export default function LandingPage() {
             {renderList}
         </div>
         <p className=" text-zinc-400 text-left text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> TRAILERS:</p>
-        <div className="mb-20  md:mb-30  lg:mb-40">
+        <div className=" mb-10 sm:mb-20  md:mb-30 ">
           <YotubeVideo vids={fisrtFourPopMovies}/>
         </div>
     </div>
