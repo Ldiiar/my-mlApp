@@ -1,6 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+type ProfileState = {
+    avatar: string,
+}
+
+
+const initialState:ProfileState = {
     avatar: '',
 }
 
@@ -8,7 +13,7 @@ const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
-        changeAvatar: (state, action) => {
+        changeAvatar: (state, action: PayloadAction<string>) => {
             state.avatar = action.payload
         }
     }

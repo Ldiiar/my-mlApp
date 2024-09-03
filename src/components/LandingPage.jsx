@@ -1,30 +1,40 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 // import landPoster from '../assets/land-poster.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import landPoster2 from '../assets/poster-second.jpeg'
+// import landPoster2 from '../assets/poster-second.jpeg'
 import landPoster4 from '../assets/poster-four.jpg'
 import { addMovies } from '../features/Movies/movieSlice'
 import MovieCard from './MovieCard/MovieCard'
 import YotubeVideo from './common/YotubeVideo'
+import Loading from './common/Loading'
 
 
 export default function LandingPage() {
   // const [renderList, setRenderList] = useState('')
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(addMovies())
+    function fetchMovies() {
+			fetch(
+				"https://api.themoviedb.org/3/movie/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US"
+			)
+				.then((res) => res.json())
+				.then((data) => dispatch(addMovies(data)));
+		}
+		fetchMovies();
   },[])
-      const popMovies = useSelector(state => state.movies.movies.results)
+      const popMovies = useSelector(state => state.movies.movies)
       console.log(popMovies);
       
     
-      let fisrtFourPopMovies = popMovies?.slice(0,4)
-      console.log(fisrtFourPopMovies);
-    
-      const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
-        fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
-      ) : <p></p>
+      // let fisrtFourPopMovies = popMovies.slice(0,4)
+      // console.log(fisrtFourPopMovies);
+      
+      
+      // const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
+      //   fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
+      // ) : <p></p>
+      // console.log(renderList);
   
 
 
@@ -48,11 +58,13 @@ export default function LandingPage() {
           <p className='font-serif font-medium text-zinc-400 text-base sm:text-lg text-center'>It's free for usage as a social networking platform</p>
         </div>
         <div className="flex justify-center mb-8 lg:mb-16">
-            {renderList}
+          <Suspense fallback={<Loading />}>
+            {/* {renderList} */}
+          </Suspense>
         </div>
         <p className=" text-zinc-400 text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> TRAILERS:</p>
         <div className=" mb-10 sm:mb-20  md:mb-30 ">
-          <YotubeVideo vids={fisrtFourPopMovies}/>
+          {/* <YotubeVideo vids={fisrtFourPopMovies}/> */}
         </div>
     </div>
     </div>

@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+type MovieState = {
+	movies: string,
+	upcomingMovies: string,
+}
+
+
 let initialState = {
 	movies: {},
 	upcomingMovies: {},
@@ -15,26 +21,14 @@ const movieSlice = createSlice({
 	name: "movies",
 	initialState,
 	reducers: {
-		addMovies: (state) => {
-			fetch(
-				"https://api.themoviedb.org/3/movie/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
-			)
-				.then((res) => res.json())
-				.then((data) => state.movies = data)
+		addMovies: (state, { payload }) => {
+			state.movies = payload;
 		},
-		addUpcomingMovies: (state) => {
-				fetch(
-					"https://api.themoviedb.org/3/movie/upcoming?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
-				)
-					.then((res) => res.json())
-					.then((data) => state.upcomingMovies = data);
+		addUpcomingMovies: ( state, { payload } ) => {
+			state.upcomingMovies = payload
 		},
-		addShows: (state) => {
-			fetch(
-				"https://api.themoviedb.org/3/tv/popular?api_key=0bf633ba86a7dcd730bf18d481aa851d&language=en-US&page=1"
-			)
-				.then((res) => res.json())
-				.then((data) => state.shows = data);
+		addShows: (state, { payload }) => {
+			state.shows = payload
 		},
 		addSelectedOne: (state, {payload}) => {
 			state.selectedOne = payload
@@ -48,7 +42,7 @@ const movieSlice = createSlice({
 		addReviews: (state, {payload}) => {
 			state.reviews = payload
 		},
-		setSearchingPromt:(state, {payload}) => {
+		setSearchingPromt: (state, {payload}) => {
 			state.searchingPromt = payload
 		},
 		removeSelectedOne: (state) => {
@@ -61,10 +55,12 @@ const movieSlice = createSlice({
 
 
 export default movieSlice.reducer;
+
 export const { 
 	addMovies , addUpcomingMovies, addShows, addSelectedOne, 
 	addTrailerLink, removeSelectedOne, setFoundMovies, setSearchingPromt,
-	addReviews, addReviewsMovieName} = movieSlice.actions;
+	addReviews} = movieSlice.actions;
+
 export const getAllMovies = (state)=> state.movies.movies
 
 

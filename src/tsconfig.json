@@ -1,27 +1,26 @@
 {
 	"compilerOptions": {
-        "target": "es5",                   // Adjust based on your project's target environment (e.g., "es2015", "esnext")
-        "module": "commonjs",             // Module system (e.g., "commonjs", "amd", "system")
-        "lib": ["dom", "dom.iterable", "esnext"],  // Standard library to include
-        "allowJs": true,                   // Allow compilation of plain JavaScript files
-        "strict": true,                    // Enable strict type checking
-        "esModuleInterop": true,           // Enable ES module interop for TypeScript and JavaScript modules
-        "allowSyntheticDefaultImports": true,  // Allow synthetic default imports for compatibility
-        "skipLibCheck": true,              // Skip type checking of library files (if applicable)
-        "forceConsistentCasingInFileNames": true,  // Enforce consistent casing in file names
-        "noFallthroughCasesInSwitch": true,    // Disallow fallthrough cases in switch statements
-        "newLine": "lf",                   // Line endings (e.g., "crlf", "lf")
-        "sourceMap": true,                  // Generate source maps
-        "declaration": true,               // Generate type declaration files (.d.ts)
-        "outDir": "dist",                  // Output directory for compiled JavaScript files
-        "rootDir": "src",                  // Root directory of your source code
-        "typeRoots": [
-          "./node_modules/@types"
-        ],                                  // Path(s) to look for type declaration files
-        "resolveJsonModule": true,           // Resolve JSON modules
-        "isolatedModules": true,             // Treat each file as a separate module
-        "jsx": "react",                      // JSX parsing mode (e.g., "react", "preserve")
-        "experimentalDecorators": true       // Enable experimental support for decorators
-      },
-	"include": ["src", "src/index.d.ts"]
+		"target": "ES2020",
+		"useDefineForClassFields": true,
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+
+		/* Linting */
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true
+	},
+	"include": ["src"],
+	"references": [{ "path": "./tsconfig.node.json" }]
 }

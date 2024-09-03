@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import {
     addMovies,
@@ -20,3 +19,5 @@ export function searchPromt(name) {
             .then((res) => res.json())
             .then((data) => dispatch(setFoundMovies(data)));
 }
+
+
