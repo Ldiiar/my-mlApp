@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 // import landPoster2 from '../assets/poster-second.jpeg'
-import landPoster4 from '../assets/poster-four.jpg'
+import landPoster4 from '../assets/poster-fifth.webp'
 import { addMovies } from '../features/Movies/movieSlice'
 import MovieCard from './MovieCard/MovieCard'
 import YotubeVideo from './common/YotubeVideo'
@@ -27,14 +27,14 @@ export default function LandingPage() {
       console.log(popMovies);
       
     
-      // let fisrtFourPopMovies = popMovies.slice(0,4)
-      // console.log(fisrtFourPopMovies);
+      let fisrtFourPopMovies = popMovies.results.slice(0,4)
+      console.log(fisrtFourPopMovies);
       
       
-      // const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
-      //   fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
-      // ) : <p></p>
-      // console.log(renderList);
+      const renderList = fisrtFourPopMovies && fisrtFourPopMovies.length > 0 ? (
+        fisrtFourPopMovies.map(el => <MovieCard data={el} key={el.id} type='landing-page'/>)
+      ) : <p></p>
+      console.log(renderList);
   
 
 
@@ -43,7 +43,7 @@ export default function LandingPage() {
     <div className='container'>
       <div className="">
         <img src={landPoster4} className='back-poster' alt="" />
-        <div className='flex flex-col justify-center items-center mt-4 mb-8 '>
+        <div className='flex flex-col justify-center items-center mt-4 mb-8 lg:mt-16 lg:mb-14'>
             <p className='font-serif text-center w-5/6 sm:w-3/4 text-lg font-semibold sm:text-xl md:text-2xl lg:text-4xl xl:font-semibold' >
             Start your journey to the cinema: track what you've watched, like, save to watch later, etc</p>
         </div>
@@ -54,17 +54,17 @@ export default function LandingPage() {
             </button>
           </Link>
         </div>
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-4 lg:mb-10">
           <p className='font-serif font-medium text-zinc-400 text-base sm:text-lg text-center'>It's free for usage as a social networking platform</p>
         </div>
         <div className="flex justify-center mb-8 lg:mb-16">
           <Suspense fallback={<Loading />}>
-            {/* {renderList} */}
+            {renderList}
           </Suspense>
         </div>
-        <p className=" text-zinc-400 text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> TRAILERS:</p>
-        <div className=" mb-10 sm:mb-20  md:mb-30 ">
-          {/* <YotubeVideo vids={fisrtFourPopMovies}/> */}
+        <p className=" text-zinc-400 text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> See trailers of these 4 trending movies:</p>
+        <div className=" mb-10 sm:mb-20  md:mb-30 lg:mb-[150px]">
+          <YotubeVideo vids={fisrtFourPopMovies}/>
         </div>
     </div>
     </div>
