@@ -7,9 +7,9 @@ type MovieState = {
 
 
 let initialState = {
-	movies: {},
-	upcomingMovies: {},
-	shows: {},
+	movies: null,
+	upcomingMovies: null,
+	shows: null,
 	selectedOne: {},
 	trailerLink : {},
 	foundMovies : {},

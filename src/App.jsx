@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import ListPage from './components/ListPage';
 import ProfilePage from './components/ProfilePage';
 import LandingPage from './components/LandingPage';
+import Loading from './components/common/Loading';
 
 export default function App() {
 	const burgerMenu = useSelector((state) => state.burgerMenu.isBurgerMenuOpen)
@@ -76,7 +77,7 @@ export default function App() {
 
 	return (
 		<div className={`app${burgerMenu ? ' app-fixed' : ''}`}>
-			<RouterProvider router={router} />
+				<RouterProvider router={router} />
 			<Footer />
 		</div>
 	);

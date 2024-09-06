@@ -10,6 +10,7 @@ import { tabSettings } from "../common/slickForTab";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import Loading from '../common/Loading';
 
 const MovieListing = () => {
 	const movies = useSelector((state) => state.movies.movies.results);
@@ -62,6 +63,10 @@ const MovieListing = () => {
 		);
 	}
 
+	if (!movies || !upcoming || !shows) {
+		return <Loading />
+	  }
+	  
 	return (
 		<div className="movie-wrapper">
 			<div className="movie-list">

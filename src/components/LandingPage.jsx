@@ -11,7 +11,6 @@ import Loading from './common/Loading'
 
 
 export default function LandingPage() {
-  // const [renderList, setRenderList] = useState('')
   const dispatch = useDispatch()
   useEffect(() => {
     function fetchMovies() {
@@ -27,7 +26,7 @@ export default function LandingPage() {
       console.log(popMovies);
       
     
-      let fisrtFourPopMovies = popMovies.results.slice(0,4)
+      let fisrtFourPopMovies = popMovies?.results?.slice(0,4)
       console.log(fisrtFourPopMovies);
       
       
@@ -58,9 +57,7 @@ export default function LandingPage() {
           <p className='font-serif font-medium text-zinc-400 text-base sm:text-lg text-center'>It's free for usage as a social networking platform</p>
         </div>
         <div className="flex justify-center mb-8 lg:mb-16">
-          <Suspense fallback={<Loading />}>
             {renderList}
-          </Suspense>
         </div>
         <p className=" text-zinc-400 text-center mb-4 sm:text-sm  md:text-xl lg:text-2xl"> See trailers of these 4 trending movies:</p>
         <div className=" mb-10 sm:mb-20  md:mb-30 lg:mb-[150px]">
